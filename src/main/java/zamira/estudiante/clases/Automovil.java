@@ -14,6 +14,7 @@ import zamira.estudiante.automovil1.enumeraciones3.TipoColor;
  */
 public class Automovil {
     
+
     
     //Atributos
       public String marca;
@@ -43,9 +44,46 @@ public class Automovil {
         this.color = color;
         this.velocidadActual = velocidadActual;
     }
-
     
-    //get y set
+
+
+    //mostrar Atributos
+    public void mostrarAtributos() {
+        System.out.println("Marca: " + marca);
+        System.out.println("Modelo: " + modelo);
+        System.out.println("Motor: " + motor + " L");
+        System.out.println("Tipo de Combustible: " + tipoCombustible);
+        System.out.println("Tipo de Automóvil: " + tipoAutomovil);
+        System.out.println("Número de Puertas: " + numeroPuertas);
+        System.out.println("Canridad de Asientos: " + cantidadAsiento);
+        System.out.println("Velocidad Máxima: " + velodidadMaxima+ " km/h");
+        System.out.println("Color: " + color);
+        System.out.println("Velocidad Actual: " + velocidadActual + " km/h"); 
+        
+    }
+
+       public int acelerar(int incremento) {
+        velocidadActual += incremento;
+        return (int) velocidadActual;
+    }
+
+    public void desacelerar(int decrecimiento) {
+        velocidadActual = Math.max(0, velocidadActual - decrecimiento);
+    }
+
+    public void frenar() {
+        velocidadActual = 0;
+    }
+
+    // Calcular el tiempo de llegada
+    public double tiempoLlegada(double distancia) {
+        if (velocidadActual == 0) {
+            return Double.POSITIVE_INFINITY; // Si la velocidad es 0, no es posible calcular el tiempo
+        }
+        return distancia / velocidadActual;
+    }
+
+    // Getters y Setters
     public String getMarca() {
         return marca;
     }
@@ -124,25 +162,9 @@ public class Automovil {
 
     public void setVelocidadActual(double velocidadActual) {
         this.velocidadActual = velocidadActual;
-    }
-      
-
-    //mostrar Atributos
     
-    public void mostrarAtributos(){
-        
-        System.out.println("Marca: " + marca);
-        System.out.println("Modelo: " + modelo);
-        System.out.println("Motor: " + motor + " L");
-        System.out.println("Tipo de Combustible: " + tipoCombustible);
-        System.out.println("Tipo de Automóvil: " + tipoAutomovil);
-        System.out.println("Número de Puertas: " + numeroPuertas);
-        System.out.println("Canridad de Asientos: " + cantidadAsiento);
-        System.out.println("Velocidad Máxima: " + velodidadMaxima+ " km/h");
-        System.out.println("Color: " + color);
-        System.out.println("Velocidad Actual: " + velocidadActual + " km/h");
-        
-        
-    }
+    
     
 }
+}
+    
